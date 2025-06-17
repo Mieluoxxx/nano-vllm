@@ -42,3 +42,12 @@ See `bench.py` for benchmark.
 |----------------|-------------|----------|-----------------------|
 | vLLM           | 133,966     | 98.95    | 1353.86               |
 | Nano-vLLM      | 133,966     | 101.90   | 1314.65               |
+
+## playground
+```bash
+uv pip install setuptools torch
+uv sync --extra build --extra compile
+export HF_ENDPOINT=https://hf-mirror.com
+uv run huggingface-cli download --resume-download --local-dir-use-symlinks False Qwen/Qwen3-0.6B --local-dir Qwen3-0.6B
+uv run python example.py
+```
